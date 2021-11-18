@@ -1,19 +1,22 @@
-import React from 'react';
-import { render } from 'react-dom';
+import React from "react";
+import { render } from "react-dom";
 
-import MovieList from './components/MovieList'
-import Movie from './components/Movie';
+import MovieList from "./components/MovieList";
+import Movie from "./components/Movie";
 
-import './style.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import "./style.css";
 
 const App = () => {
   return (
-    <>
-     <h1>Movies</h1>
-
-      <MovieList />
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<MovieList />} />
+        <Route path="/movies/:id" element={<Movie />} />
+      </Routes>
+    </BrowserRouter>
   );
-}
+};
 
-render(<App />, document.querySelector('#app'));
+render(<App />, document.querySelector("#app"));
